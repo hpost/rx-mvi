@@ -20,13 +20,13 @@ abstract class BaseModel<INTENT : Intent, ACTION : Action, VM> : Model<INTENT, A
         disposables.clear()
     }
 
-    protected fun <T : Event> createModel(events: Observable<out T>, initialViewModel: VM, reducer: (VM, T) -> VM) {
+    protected fun <T : Event> makeViewModel(events: Observable<out T>, initialViewModel: VM, reducer: (VM, T) -> VM) {
         disposables.add(events.scan(initialViewModel, reducer)
                 .distinctUntilChanged()
                 .subscribe(viewModel::onNext))
     }
 
-    protected fun createActions(actions: Observable<out ACTION>) {
+    protected fun makeActions(actions: Observable<out ACTION>) {
         disposables.add(actions.subscribe(this.actions::onNext))
     }
 }
