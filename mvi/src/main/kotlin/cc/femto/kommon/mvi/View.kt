@@ -1,6 +1,6 @@
 package cc.femto.kommon.mvi
 
-import rx.Observable
+import io.reactivex.Observable
 
 interface View<INTENT : Intent, ACTION : Action, VM> {
     /**

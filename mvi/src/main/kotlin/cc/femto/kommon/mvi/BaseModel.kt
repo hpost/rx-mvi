@@ -1,14 +1,14 @@
 package cc.femto.kommon.mvi
 
-import rx.Observable
-import rx.android.schedulers.AndroidSchedulers
-import rx.subjects.BehaviorSubject
-import rx.subjects.PublishSubject
-import rx.subscriptions.CompositeSubscription
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.subjects.BehaviorSubject
+import io.reactivex.subjects.PublishSubject
 
 abstract class BaseModel<INTENT : Intent, ACTION : Action, VM> : Model<INTENT, ACTION, VM> {
 
-    protected val subscriptions = CompositeSubscription()
+    protected val disposables = CompositeDisposable()
     protected val viewModel: BehaviorSubject<VM> = BehaviorSubject.create()
     protected val actions: PublishSubject<ACTION> = PublishSubject.create()
 
@@ -17,16 +17,16 @@ abstract class BaseModel<INTENT : Intent, ACTION : Action, VM> : Model<INTENT, A
     override fun actions(): Observable<ACTION> = actions.observeOn(AndroidSchedulers.mainThread())
 
     override fun detach() {
-        subscriptions.clear()
+        disposables.clear()
     }
 
-    protected fun <T : Event> createModel(events: Observable<out T>, initialViewModel: VM, reducer: (VM, T) -> VM) {
-        subscriptions.add(events.scan(initialViewModel, reducer)
+    protected fun <T : Event> makeViewModel(events: Observable<out T>, initialViewModel: VM, reducer: (VM, T) -> VM) {
+        disposables.add(events.scan(initialViewModel, reducer)
                 .distinctUntilChanged()
-                .subscribe(viewModel))
+                .subscribe(viewModel::onNext))
     }
 
-    protected fun createActions(actions: Observable<out ACTION>) {
-        subscriptions.add(actions.subscribe(this.actions))
+    protected fun makeActions(actions: Observable<out ACTION>) {
+        disposables.add(actions.subscribe(this.actions::onNext))
     }
 }
