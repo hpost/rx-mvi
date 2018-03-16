@@ -1,5 +1,7 @@
 # kommon-mvi
 
+[![](https://jitpack.io/v/cc.femto/kommon-mvi.svg)](https://jitpack.io/#cc.femto/kommon-mvi)
+
 Suggestion for Model View Intent inspired Android applications written in Kotlin
 
 Add it to your build.gradle with:
