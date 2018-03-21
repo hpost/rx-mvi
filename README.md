@@ -4,6 +4,8 @@
 
 Suggestion for Model View Intent inspired Android applications written in Kotlin
 
+![Alt MVI diagram](./docs/mvi_diagram.png)
+
 Add it to your build.gradle with:
 ```gradle
 allprojects {
