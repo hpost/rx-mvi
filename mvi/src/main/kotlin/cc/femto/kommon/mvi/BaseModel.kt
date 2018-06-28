@@ -31,13 +31,6 @@ abstract class BaseModel<INTENT : Intent, ACTION : Action, VM> : Model<INTENT, A
     fun dispatchEvent(event: Event) = events.onNext(event)
 
     /**
-     * Dispatch  to set the current view model, e.g. when testing
-     */
-    fun dispatchViewModel(viewModel: VM) {
-        this.viewModel.onNext(viewModel)
-    }
-
-    /**
      * Subscribes internal event relay to supplied event stream and sets up [viewModel]
      */
     protected fun makeViewModel(events: Observable<out Event>, initialViewModel: VM, reducer: (VM, Event) -> VM) {
