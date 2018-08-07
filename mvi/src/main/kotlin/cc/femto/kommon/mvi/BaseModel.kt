@@ -1,7 +1,6 @@
 package cc.femto.kommon.mvi
 
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
@@ -11,21 +10,40 @@ abstract class BaseModel<INTENT : Intent, ACTION : Action, VM> : Model<INTENT, A
     protected val disposables = CompositeDisposable()
     protected val viewModel: BehaviorSubject<VM> = BehaviorSubject.create()
     protected val actions: PublishSubject<ACTION> = PublishSubject.create()
+    private val events: PublishSubject<Event> = PublishSubject.create()
 
-    override fun viewModel(): Observable<VM> = viewModel.observeOn(AndroidSchedulers.mainThread())
+    override fun viewModel(): Observable<VM> = viewModel
 
-    override fun actions(): Observable<ACTION> = actions.observeOn(AndroidSchedulers.mainThread())
+    override fun actions(): Observable<ACTION> = actions
 
     override fun detach() {
         disposables.clear()
     }
 
-    protected fun <T : Event> makeViewModel(events: Observable<out T>, initialViewModel: VM, reducer: (VM, T) -> VM) {
-        disposables.add(events.scan(initialViewModel, reducer)
+    /**
+     * Exposes the internal [Event] stream that passes through the reducer
+     */
+    protected fun events(): Observable<Event> = events
+
+    /**
+     * Dispatch an event to the reducer
+     */
+    fun dispatchEvent(event: Event) = events.onNext(event)
+
+    /**
+     * Subscribes internal event relay to supplied event stream and sets up [viewModel]
+     */
+    protected fun makeViewModel(events: Observable<out Event>, initialViewModel: VM, reducer: (VM, Event) -> VM) {
+        disposables.add(this.events
+                .scan(initialViewModel, reducer)
                 .distinctUntilChanged()
                 .subscribe(viewModel::onNext))
+        disposables.add(events.subscribe(this.events::onNext))
     }
 
+    /**
+     * Subscribes internal action relay to supplied action stream and sets up [actions]
+     */
     protected fun makeActions(actions: Observable<out ACTION>) {
         disposables.add(actions.subscribe(this.actions::onNext))
     }

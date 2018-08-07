@@ -18,6 +18,6 @@ and:
 
 ```gradle
 dependencies {
-    implementation "cc.femto:kommon-mvi:2.0.1"
+    implementation "cc.femto:kommon-mvi:2.1.1"
 }
 ```

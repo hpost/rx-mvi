@@ -12,7 +12,10 @@ interface Model<INTENT : Intent, ACTION : Action, VM> {
      * <code>
      *     override fun onCreate(savedInstanceState: Bundle?) {
      *         super.onCreate(savedInstanceState)
-     *         view.attach(model.viewModel(), model.actions())
+     *         view.attach(
+     *                 model.viewModel().observeOn(AndroidSchedulers.mainThread()),
+     *                 model.actions().observeOn(AndroidSchedulers.mainThread())
+     *         )
      *         model.attach(view.intents())
      *     }
      * </code>
@@ -32,6 +35,15 @@ interface Model<INTENT : Intent, ACTION : Action, VM> {
      */
     fun detach()
 
+    /**
+     * ViewModel stream
+     *
+     * NB: Observe on main thread
+     */
     fun viewModel(): Observable<VM>
+
+    /**
+     * Actions stream
+     */
     fun actions(): Observable<ACTION>
 }

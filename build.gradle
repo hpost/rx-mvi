@@ -2,9 +2,8 @@
 
 buildscript {
     ext.gradle_version = '3.0.1'
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.41'
     ext.rxjava_version = '2.1.7'
-    ext.rxandroid_version = '2.0.1'
 
     repositories {
         google()
