@@ -16,8 +16,51 @@ abstract class BaseModel<INTENT : Intent, ACTION : Action, VM> : Model<INTENT, A
 
     override fun actions(): Observable<ACTION> = actions
 
+    override fun attach(intents: Observable<INTENT>) {
+        makeViewModel(
+                eventsFrom(intents),
+                initialViewModel(),
+                ::reduce
+        )
+        disposables.add(sideEffectsFrom(intents))
+    }
+
     override fun detach() {
         disposables.clear()
+    }
+
+    /**
+     * @return instance of [VM] representing the initial state
+     */
+    protected abstract fun initialViewModel(): VM
+
+    /**
+     * Define state mutation events that result in view model changes
+     *
+     * NB: Operations that don't cause a state mutation reside in [sideEffectsFrom]
+     *
+     * @return [Observable] of [Event] feeding into [reduce]
+     */
+    protected abstract fun eventsFrom(intents: Observable<INTENT>): Observable<out Event>
+
+    /**
+     * Reduce state mutations to updated view models
+     *
+     * NB: Should be a pure function without side effects
+     */
+    protected abstract fun reduce(model: VM, event: Event): VM
+
+    /**
+     * Define side effects that don't result in state mutations, if any
+     *
+     * Default implementation results in no-op.
+     *
+     * NB: Returned subscriptions will be added to [disposables] and disposed in [detach]
+     *
+     * @return [CompositeDisposable] containing subscriptions that need to be managed
+     */
+    protected open fun sideEffectsFrom(intents: Observable<INTENT>): CompositeDisposable {
+        return CompositeDisposable()
     }
 
     /**
