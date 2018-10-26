@@ -2,22 +2,21 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1248"
-   height="840.00006"
-   viewBox="0 0 1248 840.00006"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="mvi_diagram.svg"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    width="1248"
+    height="840.00006"
+    viewBox="0 0 1248 840.00006"
+    id="svg2"
+    version="1.1"
+    inkscape:version="0.91 r13725"
+    sodipodi:docname="mvi_diagram.svg"
+    inkscape:export-xdpi="90"
+    inkscape:export-ydpi="90">
   <defs
      id="defs4">
     <marker
@@ -163,31 +162,31 @@
     </filter>
   </defs>
   <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="601.3026"
-     inkscape:cy="401.01441"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="true"
-     inkscape:window-width="3440"
-     inkscape:window-height="1396"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     borderlayer="false"
-     inkscape:showpageshadow="true"
-     units="px"
-     width="1920px"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0">
+      id="base"
+      pagecolor="#ffffff"
+      bordercolor="#666666"
+      borderopacity="1.0"
+      inkscape:pageopacity="0.0"
+      inkscape:pageshadow="2"
+      inkscape:zoom="1"
+      inkscape:cx="441.8026"
+      inkscape:cy="401.01441"
+      inkscape:document-units="px"
+      inkscape:current-layer="layer1"
+      showgrid="true"
+      inkscape:window-width="3440"
+      inkscape:window-height="1396"
+      inkscape:window-x="0"
+      inkscape:window-y="0"
+      inkscape:window-maximized="1"
+      borderlayer="false"
+      inkscape:showpageshadow="true"
+      units="px"
+      width="1920px"
+      fit-margin-top="0"
+      fit-margin-left="0"
+      fit-margin-right="0"
+      fit-margin-bottom="0">
     <inkscape:grid
        type="xygrid"
        id="grid4272"
@@ -205,7 +204,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+          <dc:title/>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -215,8 +214,8 @@
      id="layer1"
      transform="translate(-336,-102.3622)">
     <g
-       id="g13420"
-       transform="translate(140,0)">
+        id="g13420"
+        transform="translate(140,40)">
       <g
          id="g13415">
         <rect
@@ -248,15 +247,15 @@
          y="352.36218" />
     </g>
     <g
-       id="g4193"
-       transform="translate(-140,-40)">
+        id="g4193"
+        transform="translate(-140,0)">
       <rect
-         y="592.36218"
-         x="1300"
-         height="40"
-         width="40"
-         id="rect4175"
-         style="opacity:1;fill:#80cbc4;fill-opacity:1;stroke:#595959;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4264)" />
+          y="592.36218"
+          x="1360"
+          height="40"
+          width="40"
+          id="rect4175"
+          style="opacity:1;fill:#80cbc4;fill-opacity:1;stroke:#595959;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4264)" />
       <g
          id="g13427">
         <rect
@@ -279,17 +278,10 @@
              id="tspan4163"
              sodipodi:role="line">MODEL</tspan></text>
       </g>
-      <rect
-         style="opacity:1;fill:#ffcb6b;fill-opacity:1;stroke:#595959;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4264)"
-         id="rect4191"
-         width="40"
-         height="40"
-         x="1420"
-         y="592.36218" />
     </g>
     <g
-       id="g4732"
-       transform="translate(-20,-40)">
+        id="g4732"
+        transform="translate(-20,0)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f77669;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -320,8 +312,8 @@
       </g>
     </g>
     <g
-       transform="matrix(-1,0,0,-1,1998.0156,984.59143)"
-       id="g4835">
+        transform="matrix(-1,0,0,-1,1938.0156,1024.5914)"
+        id="g4835">
       <text
          transform="scale(-1,-1)"
          sodipodi:linespacing="125%"
@@ -353,38 +345,8 @@
       </g>
     </g>
     <g
-       id="g4847"
-       transform="matrix(-1,0,0,-1,1878.0156,984.59143)">
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffcb6b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="-958.0647"
-         y="-180.73671"
-         id="text4849"
-         sodipodi:linespacing="125%"
-         transform="scale(-1,-1)"><tspan
-           sodipodi:role="line"
-           id="tspan4851"
-           x="-958.0647"
-           y="-180.73671"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;font-family:'Patrick Hand';-inkscape-font-specification:'Patrick Hand';text-align:center;text-anchor:middle;fill:#ffcb6b;fill-opacity:1">&lt;ACTION&gt;</tspan></text>
-      <g
-         id="g4853"
-         style="filter:url(#filter4264)">
-        <path
-           sodipodi:nodetypes="cc"
-           inkscape:connector-curvature="0"
-           id="path4855"
-           d="m 1260,378.3622 c 0,0 0,-186 -200,-186"
-           style="fill:none;fill-rule:evenodd;stroke:#ffcb6b;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
-        <path
-           sodipodi:nodetypes="ccccccsscc"
-           inkscape:connector-curvature="0"
-           id="path4857"
-           d="m 1243.9922,370.36328 c -1.4113,0.006 -2.3731,1.43158 -1.8496,2.74219 l 16,40 c 0.6702,1.67733 3.0446,1.67733 3.7148,0 l 16,-40 c 0.8576,-2.13788 -1.9832,-3.79273 -3.4199,-1.99219 0,0 -3.7896,4.6451 -9.207,6.90234 -2.7087,1.12863 -5.7331,1.65951 -8.9961,0.84376 -3.2631,-0.81576 -6.8751,-3.00004 -10.6719,-7.7461 -0.3816,-0.47653 -0.9598,-0.75273 -1.5703,-0.75 z"
-           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffcb6b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
-      </g>
-    </g>
+        id="g4847"
+        transform="matrix(-1,0,0,-1,1878.0156,984.59143)"/>
     <rect
        style="opacity:0.5;fill:none;fill-opacity:1;stroke:#595959;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:4, 16;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4264)"
        id="rect5743"
