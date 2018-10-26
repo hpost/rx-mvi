@@ -2,7 +2,7 @@ package cc.femto.kommon.mvi
 
 import io.reactivex.Observable
 
-interface Model<INTENT : Intent, ACTION : Action, VM> {
+interface Model<INTENT : Intent, VM> {
     /**
      * Attach the model to an intent stream
      *
@@ -12,10 +12,7 @@ interface Model<INTENT : Intent, ACTION : Action, VM> {
      * <code>
      *     override fun onCreate(savedInstanceState: Bundle?) {
      *         super.onCreate(savedInstanceState)
-     *         view.attach(
-     *                 model.viewModel().observeOn(AndroidSchedulers.mainThread()),
-     *                 model.actions().observeOn(AndroidSchedulers.mainThread())
-     *         )
+     *         view.attach(model.viewModel().observeOn(AndroidSchedulers.mainThread()))
      *         model.attach(view.intents())
      *     }
      * </code>
@@ -41,9 +38,4 @@ interface Model<INTENT : Intent, ACTION : Action, VM> {
      * NB: Observe on main thread
      */
     fun viewModel(): Observable<VM>
-
-    /**
-     * Actions stream
-     */
-    fun actions(): Observable<ACTION>
 }
