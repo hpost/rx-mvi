@@ -15,9 +15,9 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
 
     override fun attach(intents: Observable<INTENT>) {
         makeViewModel(
-                eventsFrom(intents),
-                initialViewModel(),
-                ::reduce
+            eventsFrom(intents),
+            initialViewModel(),
+            ::reduce
         )
         disposables.add(sideEffectsFrom(intents))
     }
@@ -73,11 +73,17 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
     /**
      * Subscribes internal event relay to supplied event stream and sets up [viewModel]
      */
-    private fun makeViewModel(events: Observable<out Event>, initialViewModel: VM, reducer: (VM, Event) -> VM) {
-        disposables.add(this.events
+    private fun makeViewModel(
+        events: Observable<out Event>,
+        initialViewModel: VM,
+        reducer: (VM, Event) -> VM
+    ) {
+        disposables.add(
+            this.events
                 .scan(initialViewModel, reducer)
                 .distinctUntilChanged()
-                .subscribe(viewModel::onNext))
+                .subscribe(viewModel::onNext)
+        )
         disposables.add(events.subscribe(this.events::onNext))
     }
 }
