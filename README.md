@@ -20,18 +20,17 @@ It is inspired by concepts like
 
 ![Alt MVI diagram](./docs/mvi_diagram.png)
 
-Add it to your build.gradle with:
-```gradle
-allprojects {
-    repositories {
-        maven { url "https://jitpack.io" }
-    }
-}
-```
-and:
 
+## Binaries
 ```gradle
 dependencies {
     implementation "cc.femto:kommon-mvi:3.0.0"
+}
+```
+
+Requires the JitPack repository:
+```gradle
+repositories {
+    maven { url "https://jitpack.io" }
 }
 ```
