@@ -9,17 +9,20 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
 
     protected val disposables = CompositeDisposable()
     protected val viewModel: BehaviorSubject<VM> = BehaviorSubject.create()
+    private val intents: PublishSubject<INTENT> = PublishSubject.create()
     private val events: PublishSubject<Event> = PublishSubject.create()
 
     override fun viewModel(): Observable<VM> = viewModel
 
     override fun attach(intents: Observable<INTENT>) {
         makeViewModel(
-            eventsFrom(intents),
+            eventsFrom(this.intents.mergeWith(intents)),
             initialViewModel(),
             ::reduce
         )
-        disposables.add(sideEffectsFrom(intents))
+        disposables.add(
+            sideEffectsFrom(intents)
+        )
     }
 
     override fun detach() {
@@ -61,6 +64,13 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
     }
 
     /**
+     * Dispatch an intent.
+     *
+     * NB: This can lead to infinite loops.
+     */
+    fun dispatchIntent(intent: INTENT) = intents.onNext(intent)
+
+    /**
      * Exposes the internal [Event] stream that passes through the reducer
      */
     protected fun events(): Observable<Event> = events
@@ -84,6 +94,8 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
                 .distinctUntilChanged()
                 .subscribe(viewModel::onNext)
         )
-        disposables.add(events.subscribe(this.events::onNext))
+        disposables.add(
+            events.subscribe(this.events::onNext)
+        )
     }
 }
