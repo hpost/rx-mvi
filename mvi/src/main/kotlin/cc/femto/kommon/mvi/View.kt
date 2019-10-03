@@ -2,7 +2,7 @@ package cc.femto.kommon.mvi
 
 import io.reactivex.Observable
 
-interface View<INTENT : Intent, STATE> {
+interface View<ACTION : Action, STATE> {
     /**
      * Attach the view to a state stream
      *
@@ -14,12 +14,12 @@ interface View<INTENT : Intent, STATE> {
     fun attach(state: Observable<STATE>)
 
     /**
-     * Obtain intent stream for attaching to model
+     * Obtain action stream for attaching to model
      *
      * Usage:
      * <code>
-     *     model.attach(view.intents())
+     *     model.attach(view.actions())
      * </code>
      */
-    fun intents(): Observable<INTENT>
+    fun actions(): Observable<ACTION>
 }

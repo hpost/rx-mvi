@@ -157,12 +157,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="229.8026"
-     inkscape:cy="401.01441"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="73.325808"
+     inkscape:cy="370.3652"
      inkscape:document-units="px"
-     inkscape:current-layer="g4835"
-     showgrid="true"
+     inkscape:current-layer="layer1"
+     showgrid="false"
      inkscape:window-width="3392"
      inkscape:window-height="1372"
      inkscape:window-x="48"
@@ -224,7 +224,7 @@
              id="tspan4150"
              x="538.50702"
              y="492.1922"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:1.25;font-family:'Patrick Hand';-inkscape-font-specification:'Patrick Hand';text-align:center;text-anchor:middle;fill:#595959;fill-opacity:1">VIEW</tspan></text>
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:1.25;font-family:'Patrick Hand SC';-inkscape-font-specification:'Patrick Hand SC';text-align:center;text-anchor:middle;fill:#595959;fill-opacity:1">View</tspan></text>
       </g>
       <rect
          style="opacity:1;fill:#f77669;fill-opacity:1;stroke:#595959;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4264)"
@@ -259,11 +259,11 @@
            x="1379.2828"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#595959;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            xml:space="preserve"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:1.25;font-family:'Patrick Hand';-inkscape-font-specification:'Patrick Hand';text-align:center;text-anchor:middle;fill:#595959;fill-opacity:1"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:1.25;font-family:'Patrick Hand SC';-inkscape-font-specification:'Patrick Hand SC';text-align:center;text-anchor:middle;fill:#595959;fill-opacity:1"
              y="532.1922"
              x="1379.2828"
              id="tspan4163"
-             sodipodi:role="line">MODEL</tspan></text>
+             sodipodi:role="line">Model</tspan></text>
       </g>
     </g>
     <g
@@ -279,7 +279,7 @@
            id="tspan5140"
            x="962.69568"
            y="304.40518"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;line-height:1.25;font-family:'Patrick Hand';-inkscape-font-specification:'Patrick Hand';text-align:center;text-anchor:middle;fill:#f77669;fill-opacity:1">&lt;INTENT&gt;</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;line-height:1.25;font-family:'Patrick Hand SC';-inkscape-font-specification:'Patrick Hand SC';text-align:center;text-anchor:middle;fill:#f77669;fill-opacity:1">&lt;Action&gt;</tspan></text>
       <g
          id="g4831"
          style="filter:url(#filter4264)">
@@ -307,11 +307,11 @@
          x="-963.42023"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#80cbc4;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;line-height:1.25;font-family:'Patrick Hand';-inkscape-font-specification:'Patrick Hand';text-align:center;text-anchor:middle;fill:#80cbc4;fill-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:45px;line-height:1.25;font-family:'Patrick Hand SC';-inkscape-font-specification:'Patrick Hand SC';text-align:center;text-anchor:middle;fill:#80cbc4;fill-opacity:1"
            y="-280.87131"
            x="-963.42023"
            id="tspan4839"
-           sodipodi:role="line">&lt;STATE&gt;</tspan></text>
+           sodipodi:role="line">&lt;State&gt;</tspan></text>
       <g
          style="filter:url(#filter4264)"
          id="g4841">

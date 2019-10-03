@@ -5,7 +5,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 
-abstract class BaseModel<INTENT : Intent, STATE> : Model<INTENT, STATE> {
+abstract class BaseModel<ACTION : Action, STATE> : Model<ACTION, STATE> {
 
     protected val disposables = CompositeDisposable()
     protected val state: BehaviorSubject<STATE> = BehaviorSubject.create()
@@ -13,13 +13,13 @@ abstract class BaseModel<INTENT : Intent, STATE> : Model<INTENT, STATE> {
 
     override fun state(): Observable<STATE> = state
 
-    override fun attach(intents: Observable<INTENT>) {
+    override fun attach(actions: Observable<ACTION>) {
         makeStateStream(
-            makeStateMutations(intents),
+            makeStateMutations(actions),
             initialState(),
             ::reduce
         )
-        disposables.add(makeSideEffects(intents))
+        disposables.add(makeSideEffects(actions))
     }
 
     override fun detach() {
@@ -38,7 +38,7 @@ abstract class BaseModel<INTENT : Intent, STATE> : Model<INTENT, STATE> {
      *
      * @return [Observable] of [Event] feeding into [reduce]
      */
-    protected abstract fun makeStateMutations(intents: Observable<INTENT>): Observable<out Event>
+    protected abstract fun makeStateMutations(actions: Observable<ACTION>): Observable<out Event>
 
     /**
      * Reduce events to mutated state
@@ -56,10 +56,10 @@ abstract class BaseModel<INTENT : Intent, STATE> : Model<INTENT, STATE> {
      *
      * @return [CompositeDisposable] containing subscriptions that need to be managed
      */
-    protected open fun makeSideEffects(intents: Observable<INTENT>) = CompositeDisposable()
+    protected open fun makeSideEffects(actions: Observable<ACTION>) = CompositeDisposable()
 
     /**
-     * Exposes the internal [Event] stream that passes through the reducer and mutates state
+     * Exposes the internal [Event] stream that is being reduced to state over time
      */
     protected fun events(): Observable<Event> = events
 
