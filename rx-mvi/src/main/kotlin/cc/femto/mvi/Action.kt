@@ -1,4 +1,4 @@
-package cc.femto.kommon.mvi
+package cc.femto.mvi
 
 /**
  * Actions flow from the view to the model and express user intent.

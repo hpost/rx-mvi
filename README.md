@@ -1,6 +1,6 @@
-# kommon-mvi
+# rx-mvi
 
-[![](https://jitpack.io/v/cc.femto/kommon-mvi.svg)](https://jitpack.io/#cc.femto/kommon-mvi)
+[![](https://jitpack.io/v/cc.femto/rx-mvi.svg)](https://jitpack.io/#cc.femto/rx-mvi)
 
 Proposal for reactive UI applications inspired by Model View Intent written in Kotlin.
 
@@ -24,7 +24,7 @@ It is inspired by concepts like
 ## Binaries
 ```gradle
 dependencies {
-    implementation "cc.femto:kommon-mvi:3.0.0"
+    implementation "cc.femto:rx-mvi:4.0.0"
 }
 ```
 

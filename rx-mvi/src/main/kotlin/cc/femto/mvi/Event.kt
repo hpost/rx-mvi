@@ -1,4 +1,4 @@
-package cc.femto.kommon.mvi
+package cc.femto.mvi
 
 /**
  * The model uses a reducer function that produces an updated state

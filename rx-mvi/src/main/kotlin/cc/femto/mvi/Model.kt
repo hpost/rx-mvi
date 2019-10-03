@@ -1,4 +1,4 @@
-package cc.femto.kommon.mvi
+package cc.femto.mvi
 
 import io.reactivex.Observable
 
