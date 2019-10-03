@@ -2,25 +2,25 @@ package cc.femto.kommon.mvi
 
 import io.reactivex.Observable
 
-interface Model<INTENT : Intent, VM> {
+interface Model<ACTION : Action, STATE> {
     /**
-     * Attach the model to an intent stream
+     * Attach the model to an action stream
      *
-     * NB: Always attach model to view before attaching intent stream to model.
+     * NB: Always attach model to view before attaching action stream to model
      *
      * Usage:
      * <code>
      *     override fun onCreate(savedInstanceState: Bundle?) {
      *         super.onCreate(savedInstanceState)
-     *         view.attach(model.viewModel().observeOn(AndroidSchedulers.mainThread()))
-     *         model.attach(view.intents())
+     *         view.attach(model.state().observeOn(AndroidSchedulers.mainThread()))
+     *         model.attach(view.actions())
      *     }
      * </code>
      */
-    fun attach(intents: Observable<INTENT>)
+    fun attach(actions: Observable<ACTION>)
 
     /**
-     * Detach the model from previously attached intent stream
+     * Detach the model from previously attached action stream
      *
      * Usage:
      * <code>
@@ -33,9 +33,9 @@ interface Model<INTENT : Intent, VM> {
     fun detach()
 
     /**
-     * ViewModel stream
+     * State stream
      *
-     * NB: Observe on main thread
+     * NB: Observe on main thread before touching UI
      */
-    fun viewModel(): Observable<VM>
+    fun state(): Observable<STATE>
 }
