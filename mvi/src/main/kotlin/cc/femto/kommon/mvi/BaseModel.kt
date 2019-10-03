@@ -5,21 +5,21 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 
-abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
+abstract class BaseModel<INTENT : Intent, STATE> : Model<INTENT, STATE> {
 
     protected val disposables = CompositeDisposable()
-    protected val viewModel: BehaviorSubject<VM> = BehaviorSubject.create()
+    protected val state: BehaviorSubject<STATE> = BehaviorSubject.create()
     private val events: PublishSubject<Event> = PublishSubject.create()
 
-    override fun viewModel(): Observable<VM> = viewModel
+    override fun state(): Observable<STATE> = state
 
     override fun attach(intents: Observable<INTENT>) {
-        makeViewModel(
-            eventsFrom(intents),
-            initialViewModel(),
+        makeStateStream(
+            makeStateMutations(intents),
+            initialState(),
             ::reduce
         )
-        disposables.add(sideEffectsFrom(intents))
+        disposables.add(makeSideEffects(intents))
     }
 
     override fun detach() {
@@ -27,28 +27,28 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
     }
 
     /**
-     * @return instance of [VM] representing the initial state
+     * @return instance of [STATE] representing the initial state
      */
-    protected abstract fun initialViewModel(): VM
+    protected abstract fun initialState(): STATE
 
     /**
-     * Define state mutation events that result in view model changes
+     * Define events that will mutate state within the reducer
      *
-     * NB: Operations that don't cause a state mutation reside in [sideEffectsFrom]
+     * NB: Operations that cause side-effects rather than state mutations reside in [makeSideEffects]
      *
      * @return [Observable] of [Event] feeding into [reduce]
      */
-    protected abstract fun eventsFrom(intents: Observable<INTENT>): Observable<out Event>
+    protected abstract fun makeStateMutations(intents: Observable<INTENT>): Observable<out Event>
 
     /**
-     * Reduce state mutations to updated view models
+     * Reduce events to mutated state
      *
      * NB: Should be a pure function without side effects
      */
-    protected abstract fun reduce(model: VM, event: Event): VM
+    protected abstract fun reduce(state: STATE, event: Event): STATE
 
     /**
-     * Define side effects that don't result in state mutations, if any
+     * Define side effects that don't result in state mutations
      *
      * Default implementation results in no-op.
      *
@@ -56,12 +56,10 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
      *
      * @return [CompositeDisposable] containing subscriptions that need to be managed
      */
-    protected open fun sideEffectsFrom(intents: Observable<INTENT>): CompositeDisposable {
-        return CompositeDisposable()
-    }
+    protected open fun makeSideEffects(intents: Observable<INTENT>) = CompositeDisposable()
 
     /**
-     * Exposes the internal [Event] stream that passes through the reducer
+     * Exposes the internal [Event] stream that passes through the reducer and mutates state
      */
     protected fun events(): Observable<Event> = events
 
@@ -71,19 +69,21 @@ abstract class BaseModel<INTENT : Intent, VM> : Model<INTENT, VM> {
     fun dispatchEvent(event: Event) = events.onNext(event)
 
     /**
-     * Subscribes internal event relay to supplied event stream and sets up [viewModel]
+     * Subscribes internal event relay to supplied event stream and sets up [state] stream
      */
-    private fun makeViewModel(
+    private fun makeStateStream(
         events: Observable<out Event>,
-        initialViewModel: VM,
-        reducer: (VM, Event) -> VM
+        initialState: STATE,
+        reducer: (STATE, Event) -> STATE
     ) {
         disposables.add(
             this.events
-                .scan(initialViewModel, reducer)
+                .scan(initialState, reducer)
                 .distinctUntilChanged()
-                .subscribe(viewModel::onNext)
+                .subscribe(state::onNext)
         )
-        disposables.add(events.subscribe(this.events::onNext))
+        disposables.add(
+            events.subscribe(this.events::onNext)
+        )
     }
 }
