@@ -24,7 +24,7 @@ It is inspired by concepts like
 ## Binaries
 ```gradle
 dependencies {
-    implementation "cc.femto:rx-mvi:4.0.0"
+    implementation "cc.femto:rx-mvi:4.0.1"
 }
 ```
 

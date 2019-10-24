@@ -9,7 +9,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     }
 }
 
@@ -20,8 +20,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 8
-        versionName "4.0.0"
+        versionCode 9
+        versionName "4.0.1"
     }
     buildTypes {
         release {
@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
 }
 
 task sourcesJar(type: Jar) {
