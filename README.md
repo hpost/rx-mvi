@@ -20,6 +20,10 @@ It is inspired by concepts like
 
 ![Alt MVI diagram](./docs/mvi_diagram.png)
 
+## Observing state
+Take a look at [rx-mapping-extensions](https://github.com/hpost/rx-mapping-extensions)
+for useful extensions that encapsulate common operations when observing (partial) state.
+
 
 ## Binaries
 ```gradle
