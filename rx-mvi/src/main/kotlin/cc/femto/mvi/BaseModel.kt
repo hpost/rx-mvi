@@ -2,6 +2,7 @@ package cc.femto.mvi
 
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 
@@ -19,7 +20,7 @@ abstract class BaseModel<ACTION : Action, STATE> : Model<ACTION, STATE> {
             initialState(),
             ::reduce
         )
-        disposables.add(makeSideEffects(actions))
+        disposables += makeSideEffects(actions)
     }
 
     override fun detach() {
@@ -76,14 +77,10 @@ abstract class BaseModel<ACTION : Action, STATE> : Model<ACTION, STATE> {
         initialState: STATE,
         reducer: (STATE, Event) -> STATE
     ) {
-        disposables.add(
-            this.events
-                .scan(initialState, reducer)
-                .distinctUntilChanged()
-                .subscribe(state::onNext)
-        )
-        disposables.add(
-            events.subscribe(this.events::onNext)
-        )
+        disposables += this.events
+            .scan(initialState, reducer)
+            .distinctUntilChanged()
+            .subscribe(state::onNext)
+        disposables += events.subscribe(this.events::onNext)
     }
 }
