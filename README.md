@@ -28,7 +28,7 @@ for useful extensions that encapsulate common operations when observing (partial
 ## Binaries
 ```gradle
 dependencies {
-    implementation "cc.femto:rx-mvi:4.0.1"
+    implementation "cc.femto:rx-mvi:4.1.0"
 }
 ```
 
