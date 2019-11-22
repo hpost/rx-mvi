@@ -20,6 +20,11 @@ It is inspired by concepts like
 
 ![Alt MVI diagram](./docs/mvi_diagram.png)
 
+## Example
+Please refer to [reactive-android-architecture](https://github.com/hpost/reactive-android-architecture)
+for an example app demonstrating the use of `rx-mvi`.
+
+
 ## Observing state
 Take a look at [rx-mapping-extensions](https://github.com/hpost/rx-mapping-extensions)
 for useful extensions that encapsulate common operations when observing (partial) state.
