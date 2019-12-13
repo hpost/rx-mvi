@@ -13,3 +13,11 @@ fun <ACTION : Action, STATE, T : ACTION> attachComponent(
     model.attach(view.actions().mergeWith(actions))
     block()
 }
+
+fun <ACTION : Action, STATE, T : ACTION> detachComponent(
+        view: BaseView<ACTION, STATE>,
+        model: Model<ACTION, STATE>
+) {
+    view.detach()
+    model.detach()
+}
