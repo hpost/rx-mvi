@@ -9,8 +9,8 @@ fun <ACTION : Action, STATE, T : ACTION> attachComponent(
     actions: Observable<T> = Observable.empty(),
     block: () -> Unit = {}
 ) {
-    view.attach(model.state().observeOn(AndroidSchedulers.mainThread()))
     model.attach(view.actions().mergeWith(actions))
+    view.attach(model.state().observeOn(AndroidSchedulers.mainThread()))
     block()
 }
 
