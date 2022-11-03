@@ -1,8 +1,8 @@
 package cc.femto.mvi
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
-interface Model<ACTION : Action, STATE> {
+interface Model<ACTION : Action, STATE : Any> {
     /**
      * Attach the model to an action stream
      *
