@@ -1,9 +1,9 @@
 package cc.femto.mvi
 
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 
-fun <ACTION : Action, STATE, T : ACTION> attachComponent(
+fun <ACTION : Action, STATE : Any, T : ACTION> attachComponent(
     view: View<ACTION, STATE>,
     model: Model<ACTION, STATE>,
     actions: Observable<T> = Observable.empty(),
@@ -14,9 +14,9 @@ fun <ACTION : Action, STATE, T : ACTION> attachComponent(
     block()
 }
 
-fun <ACTION : Action, STATE, T : ACTION> detachComponent(
-        view: BaseView<ACTION, STATE>,
-        model: Model<ACTION, STATE>
+fun <ACTION : Action, STATE : Any, T : ACTION> detachComponent(
+    view: BaseView<ACTION, STATE>,
+    model: Model<ACTION, STATE>
 ) {
     view.detach()
     model.detach()

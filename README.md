@@ -33,7 +33,7 @@ for useful extensions that encapsulate common operations when observing (partial
 ## Binaries
 ```gradle
 dependencies {
-    implementation "cc.femto:rx-mvi:4.2.1"
+    implementation "cc.femto:rx-mvi:4.3.0"
 }
 ```
 

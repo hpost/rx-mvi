@@ -1,11 +1,11 @@
 package cc.femto.mvi
 
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.subjects.PublishSubject
 
-interface BaseView<ACTION : Action, STATE> : View<ACTION, STATE> {
+interface BaseView<ACTION : Action, STATE : Any> : View<ACTION, STATE> {
 
     /**
      * Keeps track of subscriptions to be disposed when [detach] is called

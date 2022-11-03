@@ -1,12 +1,12 @@
 package cc.femto.mvi
 
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import io.reactivex.rxjava3.subjects.PublishSubject
 
-abstract class BaseModel<ACTION : Action, STATE> : Model<ACTION, STATE> {
+abstract class BaseModel<ACTION : Action, STATE : Any> : Model<ACTION, STATE> {
 
     protected val disposables = CompositeDisposable()
     protected val state: BehaviorSubject<STATE> = BehaviorSubject.create()

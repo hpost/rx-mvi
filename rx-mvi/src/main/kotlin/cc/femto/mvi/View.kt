@@ -1,8 +1,8 @@
 package cc.femto.mvi
 
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
-interface View<ACTION : Action, STATE> {
+interface View<ACTION : Action, STATE : Any> {
     /**
      * Attach the view to a state stream
      *
